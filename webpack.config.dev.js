@@ -7,7 +7,7 @@ var srcPath = path.resolve(__dirname, './src');
 
 var entries = getEntries();
 var chunks = Object.keys(entries);
-
+console.log(path.resolve(__dirname, 'src/scripts/components'))
 var config = {
   entry: entries,
   output: {
@@ -52,7 +52,11 @@ var config = {
   resolve: {
       extensions: ['', '.js'],
       root: './src',
-      alias: {}
+      alias: {
+        'components': path.resolve(__dirname, 'src/scripts/components'),
+        'libs': path.resolve(__dirname, 'src/scripts/libs'),
+        'styles': path.resolve(__dirname, 'src/styles')
+      }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

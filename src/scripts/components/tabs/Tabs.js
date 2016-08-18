@@ -7,6 +7,7 @@ class Tabs extends Component {
 		super(props);
 		console.log(this)
 		this.state = {activeKey: this.props.activeKey};
+		this.clickHandle = this.clickHandle.bind(this);
 	}
 
 	static defaultProps = {
@@ -22,6 +23,13 @@ class Tabs extends Component {
 		onChangeEnd: PropTypes.func
 	};
 
+	clickHandle(e) {
+		this.props.onChangeStart();
+		let curKey = e.target.getAttribute('data-key');
+		this.setState({activeKey: curKey});
+		this.props.onChangeEnd();
+	}
+
 	render() {
 		const { activeKey } = this.state;
 		const { prefixCls, children, onChangeStart, onChangeEnd } = this.props;
@@ -29,16 +37,16 @@ class Tabs extends Component {
 		let tabPanes = children.map((pane) => {
 			let active = pane.key === activeKey;
  			return React.cloneElement(pane, { active: active,
- 																			  prefixCls: prefixCls });
+ 											  prefixCls: prefixCls });
 		});
 
 
 		return (
 			<div className={`${prefixCls}-wrap`}>
 				<TabNav activeKey={activeKey}
-								panes={children}
-								prefixCls={prefixCls}
-								onChangeStart={onChangeStart} />
+						panes={children}
+						prefixCls={prefixCls}
+						clickHandle={this.clickHandle} />
 				<div className={`${prefixCls}-content`}>
 					{tabPanes}
 				</div>

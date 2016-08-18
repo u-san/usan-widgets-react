@@ -52,7 +52,11 @@ var config = {
   resolve: {
       extensions: ['', '.js'],
       root: './src',
-      alias: {}
+      alias: {
+        'components': path.resolve(__dirname, 'src/scripts/components'),
+        'libs': path.resolve(__dirname, 'src/scripts/libs'),
+        'styles': path.resolve(__dirname, 'src/styles')
+      }
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
