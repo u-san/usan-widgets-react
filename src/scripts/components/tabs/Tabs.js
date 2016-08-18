@@ -22,23 +22,26 @@ class Tabs extends Component {
 		onChangeEnd: PropTypes.func
 	};
 
- 	getTabPanes = () => {
-
- 		let activeKey = this.state.activeKey;
-
- 		return this.props.children.map((pane) => {
- 			let active = pane.key === activeKey;
- 			return React.cloneElement(pane, {active: active});
- 		});
- 	}
-
 	render() {
-		let tabPanes = this.getTabPanes();
+		const { activeKey } = this.state;
+		const { prefixCls, children, onChangeStart, onChangeEnd } = this.props;
+
+		let tabPanes = children.map((pane) => {
+			let active = pane.key === activeKey;
+ 			return React.cloneElement(pane, { active: active,
+ 																			  prefixCls: prefixCls });
+		});
+
 
 		return (
-			<div>
-				<TabNav activeKey={this.state.activeKey} panes={this.props.children} />
-				{tabPanes}
+			<div className={`${prefixCls}-wrap`}>
+				<TabNav activeKey={activeKey}
+								panes={children}
+								prefixCls={prefixCls}
+								onChangeStart={onChangeStart} />
+				<div className={`${prefixCls}-content`}>
+					{tabPanes}
+				</div>
 			</div>
 		)
 	}

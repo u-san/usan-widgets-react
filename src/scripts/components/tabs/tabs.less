@@ -1,0 +1,29 @@
+
+@prefixClass: usan-tabs;
+
+.@{prefixClass} {
+	&-wrap {
+		cursor: default;
+	}
+	&-navs {
+		.clearfix();
+		position: relative;
+		border-bottom: 2px solid @border-color-base;
+	}
+
+	&-nav {
+		.float(left);
+		padding: 6px 15px;
+	}
+
+	&-ink-bar {
+		position: absolute;
+		bottom: -2px;
+		height: 2px;
+		background: @primary-color;
+	}
+	&-content {
+		padding: 15px;
+	}
+}
+
