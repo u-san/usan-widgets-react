@@ -7,7 +7,7 @@ var srcPath = path.resolve(__dirname, './src');
 
 var entries = getEntries();
 var chunks = Object.keys(entries);
-console.log(path.resolve(__dirname, 'src/scripts/components'))
+
 var config = {
   entry: entries,
   output: {

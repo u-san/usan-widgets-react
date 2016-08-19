@@ -9,34 +9,32 @@ export default class TabNav extends Component {
 		panes: PropTypes.array,
 		onChangeStart: PropTypes.func
 	}
+
 	componentDidMount() {
+		this.initInkBarOffset();
+	}
+
+	componentDidUpdate(prevProps) {
+		this.initInkBarOffset();
+	}
+
+	initInkBarOffset() {
 		const { inkBar, activeNav } = this.refs;
 		inkBar.style.width = activeNav.offsetWidth + 'px';
-		
-	}
-
-	componentWillReceiveProps(nextProps) {
-		
-	}
-
-	componentDidUpdate(nextProps) {
-		console.log(nextProps)
-		const { inkBar, activeNav } = this.refs;
 		inkBar.style.left = activeNav.offsetLeft + 'px';
-		console.log(activeNav.offsetLeft)	
 	}
 
 	render() {
-// console.log(this.props)
-		const { prefixCls, tabTitle, activeKey, clickHandle} = this.props;
+		const { prefixCls, tabTitle, activeKey, clickHandle } = this.props;
 		return (
 			<div className={`${prefixCls}-navs`}>
 				<ul>
 					{this.props.panes.map((pane, index) => {
-						let ref = pane.key === activeKey ? 'activeNav' : '';
-						return (<li className={`${prefixCls}-nav`}
+						let cls = pane.key === activeKey ? 'active': '';
+						let ref = cls ? 'activeNav' : '';
+						return (<li className={`${prefixCls}-nav ${cls}`}
 									data-key={pane.key}
-									key={index + 1} 
+									key={index + 1}
 									ref={ref}
 									onClick={clickHandle}>
 									{pane.props.tabTitle}

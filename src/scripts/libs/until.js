@@ -33,7 +33,7 @@ export function offset(elem) {
 
 let transformPropertyName;
 
-export function getTransformPropertyName() {
+export const transformName = (function() {
   if (!window.getComputedStyle) {
     return false;
   }
@@ -62,4 +62,4 @@ export function getTransformPropertyName() {
   }
   document.body.removeChild(el);
   return transformPropertyName;
-}
+})();

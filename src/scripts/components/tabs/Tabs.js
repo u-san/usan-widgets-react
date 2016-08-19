@@ -5,9 +5,10 @@ import TabPane from './TabPane';
 class Tabs extends Component {
 	constructor(props) {
 		super(props);
-		console.log(this)
+	console.log(this)
 		this.state = {activeKey: this.props.activeKey};
 		this.clickHandle = this.clickHandle.bind(this);
+		this.activeIndex = 0;
 	}
 
 	static defaultProps = {
@@ -23,9 +24,23 @@ class Tabs extends Component {
 		onChangeEnd: PropTypes.func
 	};
 
+	componentWillMount() {
+		const { activeKey } = this.state;
+		React.Children.forEach(this.props.children, (pane, index) => {
+			if (pane.key === activeKey) {
+				this.activeIndex = index;
+				return;
+			}
+		})
+
+	}
+
 	clickHandle(e) {
-		this.props.onChangeStart();
 		let curKey = e.target.getAttribute('data-key');
+
+		if (curKey === this.state.activeKey) return;
+
+		this.props.onChangeStart();
 		this.setState({activeKey: curKey});
 		this.props.onChangeEnd();
 	}
@@ -34,12 +49,13 @@ class Tabs extends Component {
 		const { activeKey } = this.state;
 		const { prefixCls, children, onChangeStart, onChangeEnd } = this.props;
 
-		let tabPanes = children.map((pane) => {
+		let tabPanes = children.map((pane, index) => {
 			let active = pane.key === activeKey;
  			return React.cloneElement(pane, { active: active,
+ 											  index: index,
+ 											  activeIndex: this.activeIndex,
  											  prefixCls: prefixCls });
 		});
-
 
 		return (
 			<div className={`${prefixCls}-wrap`}>
