@@ -9,6 +9,8 @@ export default class TabsExample extends Component {
 			    <TabPane tabTitle="选项卡一" key="1">选项卡一内容</TabPane>
 			    <TabPane tabTitle="选项卡二" key="2">选项卡二内容</TabPane>
 			    <TabPane tabTitle="选项卡三" key="3">选项卡三内容</TabPane>
+			    <TabPane tabTitle="选项卡四" key="4">选项卡四内容</TabPane>
+			    <TabPane tabTitle="选项卡五" key="5">选项卡五内容</TabPane>
 			</Tabs>
 			</div>
 		)

@@ -8,7 +8,7 @@ class Tabs extends Component {
 	console.log(this)
 		this.state = {activeKey: this.props.activeKey};
 		this.clickHandle = this.clickHandle.bind(this);
-		this.activeIndex = 0;
+		this.getActiveIndex = this.getActiveIndex.bind(this);
 	}
 
 	static defaultProps = {
@@ -24,15 +24,17 @@ class Tabs extends Component {
 		onChangeEnd: PropTypes.func
 	};
 
-	componentWillMount() {
+	getActiveIndex() {
 		const { activeKey } = this.state;
+		let activeIndex;
 		React.Children.forEach(this.props.children, (pane, index) => {
 			if (pane.key === activeKey) {
-				this.activeIndex = index;
+				activeIndex = index;
 				return;
 			}
-		})
+		});
 
+		return activeIndex;
 	}
 
 	clickHandle(e) {
@@ -49,11 +51,12 @@ class Tabs extends Component {
 		const { activeKey } = this.state;
 		const { prefixCls, children, onChangeStart, onChangeEnd } = this.props;
 
+		let activeIndex = this.getActiveIndex();
 		let tabPanes = children.map((pane, index) => {
 			let active = pane.key === activeKey;
  			return React.cloneElement(pane, { active: active,
  											  index: index,
- 											  activeIndex: this.activeIndex,
+ 											  activeIndex: activeIndex,
  											  prefixCls: prefixCls });
 		});
 
