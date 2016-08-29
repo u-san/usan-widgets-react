@@ -39,8 +39,8 @@ class Tabs extends Component {
 	}
 
 	clickHandle(e) {
-		let curKey = e.target.getAttribute('data-key'),
-			{ activeKey } = this.state;
+		let curKey = e.target.getAttribute('data-key');
+		const { activeKey } = this.state;
 
 		if (curKey === activeKey) return;
 

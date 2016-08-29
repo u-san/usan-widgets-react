@@ -5,7 +5,8 @@ export default class App extends Component {
 	render() {
 		return (
 			<ul>
-				<li><Link to={`/tabs`}>tabs</Link></li>
+				<li><Link to={`/tabs`}>Tabs</Link></li>
+				<li><Link to={`/tree`}>Tree</Link></li>
 			</ul>
 		)
 	}
