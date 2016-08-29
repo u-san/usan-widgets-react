@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { offset } from 'libs/until';
 
 export default class TabNav extends Component {
 
@@ -14,7 +13,7 @@ export default class TabNav extends Component {
 		this.initInkBarOffset();
 	}
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate() {
 		this.initInkBarOffset();
 	}
 

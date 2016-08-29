@@ -42,17 +42,14 @@
 		padding: 15px;
 		opacity: 0;
 		.transition(transform, .3s, @ease-in);
-
 		&.active {
 			position: static;
-			.translate3d(0, 0 , 0);
 			opacity: 1;
+			.translate3d(0, 0 , 0);
 		}
-
 		&.prev-item {
 			.translate3d(-100%, 0 , 0);
 		}
-
 		&.next-item {
 			.translate3d(100%, 0 , 0);
 		}

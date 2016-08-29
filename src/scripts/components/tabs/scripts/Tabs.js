@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import TabNav from './TabNav';
 import TabPane from './TabPane';
+import 'react-fastclick';
+import '../styles/index.less';
 
 class Tabs extends Component {
 	constructor(props) {
 		super(props);
-	console.log(this)
 		this.state = {activeKey: this.props.activeKey};
 		this.clickHandle = this.clickHandle.bind(this);
 		this.getActiveIndex = this.getActiveIndex.bind(this);
@@ -38,13 +39,17 @@ class Tabs extends Component {
 	}
 
 	clickHandle(e) {
-		let curKey = e.target.getAttribute('data-key');
+		let curKey = e.target.getAttribute('data-key'),
+			{ activeKey } = this.state;
 
-		if (curKey === this.state.activeKey) return;
+		if (curKey === activeKey) return;
 
-		this.props.onChangeStart();
+		this.props.onChangeStart.call(this, activeKey, curKey);
+
 		this.setState({activeKey: curKey});
-		this.props.onChangeEnd();
+		setTimeout(()=> {
+			this.props.onChangeEnd.call(this, curKey, activeKey);
+		}, 400);
 	}
 
 	render() {
@@ -65,6 +70,7 @@ class Tabs extends Component {
 				<TabNav activeKey={activeKey}
 						panes={children}
 						prefixCls={prefixCls}
+						onChangeStart={onChangeStart}
 						clickHandle={this.clickHandle} />
 				<div className={`${prefixCls}-content`}>
 					{tabPanes}
@@ -76,4 +82,3 @@ class Tabs extends Component {
 
 
 export default Tabs;
-export { TabPane };

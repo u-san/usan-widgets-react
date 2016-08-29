@@ -17,6 +17,7 @@
   "dependencies": {
     "react": "~0.14.8",
     "react-dom": "~0.14.8",
+    "react-fastclick": "^2.1.2",
     "react-router": "2.x"
   },
   "devDependencies": {
