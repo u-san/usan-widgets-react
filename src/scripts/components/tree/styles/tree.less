@@ -1,0 +1,56 @@
+
+
+@prefixClass: usan-tree;
+
+.@{prefixClass} {
+	&-wrap {
+	    font-size: 16px;
+
+		& ol {
+			padding-left: 0;
+			list-style-type: none;
+
+			& ol {
+			  padding-left: 24px;
+			}
+		}
+
+		& label {
+			margin-bottom: 0;
+			cursor: pointer;
+		}
+
+		& .fa {
+			width: 10px;
+			margin: 0 5px;
+		}
+
+		& .fa-folder-open-o,
+		& .fa-folder-o,
+		& .fa-file-o {
+			color: @primary-color;
+		}
+	}
+
+	&-collapse {
+		font-size: 18px;
+
+	  & .fa-caret-right,
+	  & .fa-caret-down {
+	    text-align: center;
+	    cursor: pointer;
+	  }
+
+	  & > .fa-chevron-right {
+	    opacity: .5;
+
+	    &:hover {
+	      opacity: 1;
+	    }
+	  }
+	}
+
+	&-title {
+	  margin-left: 5px;
+	}
+}

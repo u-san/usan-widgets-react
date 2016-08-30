@@ -1,1 +1,1 @@
-export default from './scripts/tree'
+export default from './scripts/Tree'
