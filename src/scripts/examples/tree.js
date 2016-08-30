@@ -89,9 +89,28 @@ const expanded = [
 ];
 
 export default class TreeExample extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { val: [] };
+        this.getValue = this.getValue.bind(this);
+    }
+
+    getValue(val) {
+        this.setState({
+            val: val.join(',')
+        });
+    }
+
     render() {
         return (
-            <Tree name="airports" nodes={nodes} checked={checked} expanded={expanded} />
+            <div>
+                <Tree name="airports"
+                      nodes={nodes}
+                      checked={checked}
+                      expanded={expanded}
+                      getValue={this.getValue} />
+                <p>checked: {this.state.val}</p>
+            </div>
         )
     }
 }

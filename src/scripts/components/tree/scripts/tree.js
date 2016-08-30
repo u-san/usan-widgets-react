@@ -25,8 +25,13 @@ export default class Tree extends Component {
         name: PropTypes.string,
         nodes: PropTypes.array,
         checked: PropTypes.array,
-        expanded: PropTypes.array
+        expanded: PropTypes.array,
+        getValue: PropTypes.func
     };
+
+    componentDidMount() {
+        this.props.getValue(this.state.checked);
+    }
 
     getFormattedNodes(nodes) {
         return nodes.map((node) => {
@@ -166,6 +171,8 @@ export default class Tree extends Component {
         this.setState({
             checked: this.state.checked,
         });
+
+        this.props.getValue(this.state.checked);
     }
 
     render() {
