@@ -7,6 +7,7 @@ export default class App extends Component {
 			<ul>
 				<li><Link to={`/tabs`}>Tabs</Link></li>
 				<li><Link to={`/tree`}>Tree</Link></li>
+				<li><Link to={`/countDown`}>countDown</Link></li>
 			</ul>
 		)
 	}

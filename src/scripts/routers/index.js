@@ -4,6 +4,7 @@ import { hashHistory, Router, Route, IndexRoute} from 'react-router'
 import App from '../examples'
 import Tabs from '../examples/tabs'
 import Tree from '../examples/tree'
+import CountDown from '../examples/countDown'
 
 export default class Root extends Component {
 	render() {
@@ -12,6 +13,7 @@ export default class Root extends Component {
 				<Route path="/" component={App} />
 				<Route path="/tabs" component={Tabs} />
 				<Route path="/tree" component={Tree} />
+				<Route path="/countDown" component={CountDown} />
 			</Router>
 		)
 	}
