@@ -16,12 +16,12 @@ const nodes = [
                         title: 'Controllers',
                         children: [{
                             value: '11112',
-                            title: 'WelcomeController.php',
+                            title: 'Welcome',
                         }],
                     },
                     {
                         value: '11113',
-                        title: 'routes.php',
+                        title: 'routes',
                     },
                 ],
             },
@@ -30,7 +30,7 @@ const nodes = [
                 title: 'Providers',
                 children: [{
                     value: '11121',
-                    title: 'EventServiceProvider.php',
+                    title: 'EventService',
                 }],
             },
         ],
@@ -41,11 +41,11 @@ const nodes = [
         children: [
             {
                 value: '11210',
-                title: 'app.php',
+                title: 'app',
             },
             {
                 value: '11220',
-                title: 'database.php',
+                title: 'database',
             },
         ],
     },
@@ -58,26 +58,26 @@ const nodes = [
                 title: 'assets',
                 children: [{
                     value: '11311',
-                    title: 'style.css',
+                    title: 'style',
                 }],
             },
             {
                 value: '11320',
-                title: 'index.html',
+                title: 'index',
             },
         ],
     },
     {
         value: '11400',
-        title: '.env',
+        title: 'env',
     },
     {
         value: '11410',
-        title: '.gitignore',
+        title: 'gitignore',
     },
     {
         value: '11420',
-        title: 'README.md',
+        title: 'README',
     },
 ];
 const checked = [

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { hashHistory, Router, Route, IndexRoute} from 'react-router'
-import App from '../examples'
-import Tabs from '../examples/tabs'
-import Tree from '../examples/tree'
-import CountDown from '../examples/countDown'
+import App from '../pages'
+import Tabs from '../pages/tabs'
+import Tree from '../pages/tree'
+import CountDown from '../pages/countDown'
 
 export default class Root extends Component {
 	render() {

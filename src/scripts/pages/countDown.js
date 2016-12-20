@@ -8,7 +8,7 @@ export default class CountDownExample extends Component {
 
 	render() {
 		return (
-			<CountDown targetTime={'2016/10/1'} onEnd={this.onEnd}>
+			<CountDown targetTime={'2016/12/22'} onEnd={this.onEnd}>
 				{
 					({days, hours, mins, secs}) => {
 						return (
